@@ -123,7 +123,7 @@ def train():
         print("Resume: Couldn't load the checkpoints from {}th iteration.".format(BEGIN_ITER))
 
     # Just to see the learning progress
-    fixed_z = torch.randn(BATCH_SIZE * 2, Z_DIM, 1, 1)
+    fixed_z = torch.randn(BATCH_SIZE * 2, Z_DIM, 1, 1).to(device)
 
     for i in range(BEGIN_ITER, TOTAL_ITERS+1):
         # Just because I'm encountering some problem with
@@ -132,8 +132,8 @@ def train():
             x_sample = data.next()
             if x_sample.size(0) != BATCH_SIZE:
                 print('Required batch size not equal to x_sample batch size: {} != {} | skipping...'.format(BATCH_SIZE, x_sample.size(0)))
-                return data.next()
-            return x_sample
+                x_sample = data.next()
+            return x_sample.to(device)
 
         ######################
         # Train critic_model #
@@ -151,7 +151,7 @@ def train():
             param.requires_grad_(False)
 
         for j in range(1):
-            z_sample = torch.randn(BATCH_SIZE, Z_DIM, 1, 1) # Sample prior from Gaussian distribution
+            z_sample = torch.randn(BATCH_SIZE, Z_DIM, 1, 1).to(device) # Sample prior from Gaussian distribution
             x_sample = safe_sampling()
             with torch.no_grad():
                 x_fake = decode_model(z_sample)
@@ -196,7 +196,7 @@ def train():
             param.requires_grad_(True)
 
         for j in range(2):
-            z_sample = torch.randn(BATCH_SIZE, Z_DIM, 1, 1) # Sample prior from Gaussian distribution
+            z_sample = torch.randn(BATCH_SIZE, Z_DIM, 1, 1).to(device) # Sample prior from Gaussian distribution
             x_sample = safe_sampling()
             
             x_fake = decode_model(z_sample)
