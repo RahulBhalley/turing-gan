@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
-from __future__ import division
+
+__author__ = "Rahul Bhalley"
 
 import torch
 import torch.nn as nn
@@ -32,7 +33,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
 
         block1 = [
-            SpectralNorm(nn.Conv2d(3, IMG_DIM // 2, 6, 2, padding=2)),
+            SpectralNorm(nn.Conv2d(N_CHANNELS, IMG_DIM // 2, 6, 2, padding=2)),
             nn.LeakyReLU()
         ]
 
@@ -67,8 +68,9 @@ class Encoder(nn.Module):
         # Free some memory
         del all_blocks, block1, block2, block3, block4, block5
 
-        # Print summary
-        #self.summary()
+        # Print summary if VERBOSE is True
+        if VERBOSE:
+            self.summary()
 
     def forward(self, x):
         for layer in self.main:
@@ -99,8 +101,6 @@ class Encoder(nn.Module):
                 x = layer(x)
                 print('Out: {} \tLayer: {}'.format(x.size(), layer))
 
-encode_model = Encoder_256()
-
 
 ########################
 # Discriminator/Critic #
@@ -125,8 +125,9 @@ class Critic(nn.Module):
                 SpectralNorm(nn.Linear(512, 1, bias=False))
             )
         
-        # Print summary
-        #self.summary()
+        # Print summary if VERBOSE is True
+        if VERBOSE:
+            self.summary()
 
     def forward(self, x):
         x = x.squeeze(-2).squeeze(-1)   # Encoded fake & real images [BATCH_SIZE, 64, 1, 1] 
@@ -158,8 +159,6 @@ class Critic(nn.Module):
             for layer in self.main:
                 x = layer(x)
                 print('Out: {} \tLayer: {}'.format(x.size(), layer))
-
-critic_model = Critic_256()
 
 
 #############################
@@ -208,7 +207,7 @@ class Decoder(nn.Module):
         ]
 
         block7 = [
-            nn.ConvTranspose2d(IMG_DIM // 4, 3, 6, 2, padding=2),
+            nn.ConvTranspose2d(IMG_DIM // 4, N_CHANNELS, 6, 2, padding=2),
             nn.Tanh()
         ]
 
@@ -219,8 +218,9 @@ class Decoder(nn.Module):
         # Free some memory
         del all_blocks, block1, block2, block3, block4, block5, block6, block7
         
-        # Print summary
-        #self.summary()
+        # Print summary if VERBOSE is True
+        if VERBOSE:
+            self.summary()
 
     def forward(self, x):
         x = x.squeeze(-2).squeeze(-1)
@@ -259,5 +259,3 @@ class Decoder(nn.Module):
             for layer in self.main2:
                 x = layer(x)
                 print('Out: {} \tLayer: {}'.format(x.size(), layer))
-
-decode_model = Decoder_256()

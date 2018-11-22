@@ -6,6 +6,8 @@
 from __future__ import print_function
 from __future__ import division
 
+__author__ = "Rahul Bhalley"
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -62,13 +64,13 @@ transform = transforms.Compose(
 
 root = '/Users/rahulbhalley/.torch/datasets/' + DATASET
 if DATASET == 'cifar-10':
-    trainset = torchvision.datasets.CIFAR10(root=root, train=True, download=False, transform=transform)
+    trainset = torchvision.datasets.CIFAR10(root=root, train=True, download=True, transform=transform)
 elif DATASET == 'cifar-100':
-    trainset = torchvision.datasets.CIFAR100(root=root, train=True, download=False, transform=transform)
+    trainset = torchvision.datasets.CIFAR100(root=root, train=True, download=True, transform=transform)
 elif DATASET == 'mnist':
-    trainset = torchvision.datasets.MNIST(root=root, train=True, download=False, transform=transform)
+    trainset = torchvision.datasets.MNIST(root=root, train=True, download=True, transform=transform)
 elif DATASET == 'fashion-mnist':
-    trainset = torchvision.datasets.FashionMNIST(root=root, train=True, download=False, transform=transform)
+    trainset = torchvision.datasets.FashionMNIST(root=root, train=True, download=True, transform=transform)
 else:
     trainset = torchvision.datasets.ImageFolder(root=DATASET, transform=transform)
 dataloader = torch.utils.data.DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=True, num_workers=cpu_cores)
@@ -265,6 +267,7 @@ def infer(n=10, epoch=0):
         vutils.save_image(samples, samples_dir, normalize=True)
         print('Saved image: {}'.format(samples_dir))
 
-# Trian the Turing GAN
+# Train the Turing GAN
 train()
+# Sample for Turing GAN
 #infer(n=10, epoch=70000)
