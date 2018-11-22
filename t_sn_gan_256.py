@@ -129,7 +129,7 @@ class Critic(nn.Module):
         #self.summary()
 
     def forward(self, x):
-        x = x.squeeze(-2).squeeze(-1)   # I think encoded fake & real images [BATCH_SIZE, 64, 1, 1] 
+        x = x.squeeze(-2).squeeze(-1)   # Encoded fake & real images [BATCH_SIZE, 64, 1, 1] 
                                         # are fed in Critic and therefore must be reshaped
                                         # to [BATCH_SIZE, 64].
         x = self.main(x)
