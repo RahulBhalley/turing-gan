@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 """Spectral Normalization for Generative Adversarial Networks
-    Code adapted from https://github.com/christiancosgrove/pytorch-spectral-normalization-gan/blob/master/spectral_normalization.py
 """
 
 import torch
