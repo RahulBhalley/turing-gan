@@ -71,7 +71,7 @@ elif DATASET == 'mnist':
 elif DATASET == 'fashion-mnist':
     trainset = torchvision.datasets.FashionMNIST(root=root, train=True, download=True, transform=transform)
 else:
-    trainset = torchvision.datasets.ImageFolder(root=DATASET, transform=transform)
+    trainset = torchvision.datasets.ImageFolder(root=root, transform=transform)
 dataloader = torch.utils.data.DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=True, num_workers=cpu_cores)
 
 def get_infinite_data(dataloader):
