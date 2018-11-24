@@ -10,7 +10,6 @@ __author__ = "Rahul Bhalley"
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 
 from config import *
@@ -252,7 +251,7 @@ def train():
     print('Finished training!')
 
 
-def infer(n=10, epoch=0):
+def infer(n=1, epoch=100000):
     try:
         decode_model_dir = os.path.join(MODE, 'checkpoints', DATASET, 'decode_model_' + str(epoch) + '.pth')
         decode_model.load_state_dict(torch.load(decode_model_dir, map_location='cpu'))
@@ -270,4 +269,4 @@ def infer(n=10, epoch=0):
 # Train the Turing GAN
 train()
 # Sample for Turing GAN
-#infer(n=10, epoch=70000)
+#infer()

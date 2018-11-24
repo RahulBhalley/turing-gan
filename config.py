@@ -11,16 +11,16 @@ if IMG_DIM == 32:
 elif IMG_DIM == 256:
     Z_DIM = 100
 BATCH_SIZE = 64
-MODE = 'sgan' # [wgan, sgan]
+MODE = 'wgan' # [wgan, sgan]
 
 # Some other configurations
-DATASET = 'fashion-mnist' # [mnist, fashion-mnist, cifar-10, cifar-100, ...]
+DATASET = 'cifar-10' # [mnist, fashion-mnist, cifar-10, cifar-100, ...]
 N_CHANNELS = 1 if DATASET in ['fashion-mnist', 'mnist'] else 3
 BEGIN_ITER = 0
 TOTAL_ITERS = 100000
 ITERS_PER_LOG = 100
-VERBOSE = False
-TRAIN = False
+VERBOSE = True
+TRAIN = True
 
 print('------------------')
 print('| Configurations |')
