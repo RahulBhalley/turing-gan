@@ -11,19 +11,19 @@ So, following are my experiments' resulting image data.
 
 ### CIFAR-10
 #### Turing Standard GAN with Spectral Normalization
-![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/sgan/samples/cifar-10/latest_100000.png)
+![](https://raw.githubusercontent.com/rahulbhalley/turing-gan.pytorch/pytorch/sgan/samples/cifar-10/latest_100000.png)
 #### Turing Wasserstein GAN with Spectral Normalization
 ![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/wgan/samples/cifar-10/latest_100000.png)
 
 ### MNIST
 #### Turing Standard GAN with Spectral Normalization
-![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/sgan/samples/mnist/latest_100000.png)
+![](https://raw.githubusercontent.com/rahulbhalley/turing-gan.pytorch/pytorch/sgan/samples/mnist/latest_100000.png)
 #### Turing Wasserstein GAN with Spectral Normalization
 ![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/wgan/samples/mnist/latest_100000.png)
 
 ### Fashion MNIST
 #### Turing Standard GAN with Spectral Normalization
-![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/sgan/samples/fashion-mnist/latest_100000.png)
+![](https://raw.githubusercontent.com/rahulbhalley/turing-gan.pytorch/pytorch/sgan/samples/fashion-mnist/latest_100000.png)
 #### Turing Wasserstein GAN with Spectral Normalization
 ![](https://github.com/rahulbhalley/turing-gan.pytorch/raw/master/wgan/samples/fashion-mnist/latest_100000.png)
 
