@@ -1,7 +1,7 @@
 # Turing Generative Adversarial Network
-I found Turing GAN a way to train GANs quickly! This excited me to write my own versions in [PyTorch](https://pytorch.org) refering the original Keras [code](https://github.com/bojone/T-GANs).
+Implementation of Turing GAN in various languages and frameworks!
 
-Branches contain code in respective framework/language. Please see:
+Branches contain code and experiment results in respective framework/language. Please see:
 - [master](https://github.com/rahulbhalley/turing-gan) for overall description.
 - [pytorch](https://github.com/rahulbhalley/turing-gan/tree/pytorch) for implementation in [PyTorch](https://pytorch.org).
 - [s4tf](https://github.com/rahulbhalley/turing-gan/tree/s4tf) for implementation in [Swift for TensorFlow](https://www.tensorflow.org/swift).
